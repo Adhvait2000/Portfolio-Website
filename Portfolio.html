@@ -14,16 +14,16 @@
         <nav>
             <img src="images/logo.png" class="logo">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Me</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact Information</a></li>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact Information</a></li>
             </ul>
         </nav>
         <div class="header-text">
-            <p>UI/UX Designer</p>
-            <h1>Hi, I am <span>Adhvait Srinath</span> <br> from NTU</h1>
+            <p>Third Year Computer Science Undergraduate</p>
+            <h1><span>Adhvait</span> Srinath</h1>
         </div>
     </div>
 </div>
@@ -38,7 +38,7 @@
             <div class="about-col-2">
                 <h1 class="sub-title">About Me</h1>
                 <!----------Adding Text -------------> 
-                <p>Hi my name is Adhvait</p> 
+                <p>I am a third-year university student currently majoring in Computer Science at Nanyang Technological University. I am a hardworking and passionate individual who always puts his best foot forward. I am also a goal-oriented individual and am driven to succeed. I am willing to learn new things and I wish to gain experience and better my skills as well. I have a positive attitude that will allow me to persevere through any difficulties and complete the task at hand. </p> 
 
                 <div class="tab-titles">
                     <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
@@ -47,23 +47,21 @@
                 </div>
                 <div class="tab-contents active-tab" id="skills">
                     <ul>
-                        <li><span>UI/UX</span><br>Desinging Web/App Interfaces</li>
-                        <li><span>Web Development</span><br>Web App Development</li>
-                        <li><span>App Development</span><br>Building Android/iOS apps</li>
+                        <li><span>Languages</span><br>Java, C++, C, Python, HTML/CSS, SQL</li>
+                        <li><span>Technologies</span><br>Jupyter Notebook</li>
+                        <li><span>Developer Tools</span><br>Git, Visual Studio</li>
                     </ul>
                 </div>
                 <div class="tab-contents" id="experience">
                     <ul>
-                        <li><span>2021 - Current</span><br>UI/UX Design Training at ET Institute</li>
-                        <li><span>2019 - 2021</span><br>Team Lead at StarApp LLC.</li>
-                        <li><span>2016 - 2017t</span><br>Internship at ekart eCommerce</li>
+                        <li><span>May 2022 - Aug 2022</span><br>Junior Software Engineer Intern</li>
+                        <li><span>National Service</span><br>Transport Operator</li>
                     </ul>
                 </div>
                 <div class="tab-contents" id="education">
                     <ul>
-                        <li><span>2016</span><br>UI/UX Desing Training at ET Institute</li>
-                        <li><span>2016</span><br>MBA from MIT Bangalore</li>
-                        <li><span>2014</span><br>BBA from ISM Bangalore</li>
+                        <li><span>Aug 2021 - Jun 2025</span><br>Nanyang Technological University, Singapore</li>
+                        <li><span>Aug 2015 - Jun 2021</span><br>NPS International School, Singapore</li>
                     </ul>
                 </div>
             </div>
@@ -99,7 +97,7 @@
 <!--------Portfolio---------->
 <div id="portfolio">
     <div class="container">
-        <h1 class="sub-title">My Work</h1>
+        <h1 class="sub-title">My Projects</h1>
         <div class="work-list">
             <div class="work">
                 <img src="images/work-1.png">
@@ -134,9 +132,29 @@
 <div id="contact">
     <div class="container">
         <div class="row">
-            <div class="contact-left"></div>
-            <div class="contact-right"></div>
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-envelope"></i>adhvait.srinath@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i>+65 96329847</p>
+                <div class="social-icons">
+                    <a href="https://github.com/Adhvait2000" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/adhvait-srinath-3653b9252/" target="_blank"><i class="fa-brands fa-linkedin"></i></i></a>
+                </div>
+                <a href="images/Resume.pdf" download class="btn btn2">View Resume</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
         </div>
+    </div>
+    <div class="copyright">
+        <p> © Adhvait Srinath 2023</p>
     </div>
 </div>
 
@@ -159,6 +177,22 @@
         document.getElementById(tabname).classList.add("active-tab");
     }
 </script>
-
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw1_7yPaxYKh22LtUlUW2Wib3YIomoh6T2carvL1g3IAs-eV7vTE6T_laOQcKY1TS2H0g/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {msg.innerHTML = "Message Sent!"
+                            setTimeout(function(){
+                                msg.innerHTML = ""
+                            }, 5000)
+                            form.reset()
+                        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 </body>
 </html> 
