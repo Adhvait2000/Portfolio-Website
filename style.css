@@ -31,10 +31,6 @@ nav{
     flex-wrap: wrap;
 }
 
-.logo{
-    width: 140px;
-}
-
 nav ul li{
     display: inline-block;
     list-style: none;
@@ -104,6 +100,10 @@ nav ul li a:hover::after{
 .about-col-2{
     flex-basis: 60%;
 }
+.about-col-2 p{
+    margin-top: 10px;
+    font-size: 20px;
+}
 
 .sub-title{
     font-size: 60px;
@@ -118,7 +118,7 @@ nav ul li a:hover::after{
 
 .tab-links{
     margin-right: 50px;
-    font-size: 18px;
+    font-size: 30px;
     font-weight: 500;
     cursor: pointer;
     position: relative;
@@ -146,11 +146,12 @@ nav ul li a:hover::after{
 
 .tab-contents ul li span{
     color: #b54769;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .tab-contents{
     display: none;
+    font-size: 18px;
 }
 
 .tab-contents.active-tab{
@@ -158,7 +159,7 @@ nav ul li a:hover::after{
 }
 
 /*--------services----------*/
-
+/*
 #services{
     padding: 30px 0;
 }
@@ -202,6 +203,7 @@ nav ul li a:hover::after{
     background-color: #ff004f;
     transform: translateY(-10px);
 }
+*/
 
 /*------portfolio------*/
 
